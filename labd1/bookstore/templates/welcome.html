@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to Book Store</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa; /* Light gray background color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    img {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
+      border-radius: 10px;
+    }
+    .btn {
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  {% load static %}
+  <div class="container">
+    <h1>Welcome to Book Store</h1>
+    <img src="{% static 'bookstore\newimg\img4.jpg' %}" alt="Book Store">
+    <a class="btn" href="{% url 'bookstore_land' %}">Books</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<h1>{{ author.name }}</h1>
+<img src="{{ author.image.url }}" alt="{{ author.name }}">
+<p>Birth Date: {{ author.birth_date }}</p>
+<h2>Books by {{ author.name }}</h2>
+<ul>
+{% for book in books %}
+    <li>{{ book.name }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

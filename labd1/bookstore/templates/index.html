@@ -1,0 +1,43 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore</title>
+    <link rel="stylesheet" href="{% static 'css/bookstore.css' %}"> <!-- Link to your custom CSS file -->
+</head>
+<body>
+
+    
+    <div class="container">
+        <h1 class="text-center my-4">Welcome to Our Bookstore</h1>
+        <a href="{% url 'create.form' %}" class="btn btn-primary mb-4">Add New Book</a>
+        <div class="row">
+            {% for book in bookstore %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ book.image.url }}" class="card-img-top" alt="Book Cover">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.name }}</h5>
+                        <p class="card-text">Price: ${{ book.price }}</p>
+                        <!-- You can add more details here -->
+                        <div class="btn-group" role="group">
+                            <a href="{% url 'new_book_show' book.id %}" class="btn btn-outline-primary">Show Details</a>
+                            <a href="{% url 'book_delete' book.id %}" class="btn btn-outline-danger">Delete</a>
+                            <a href="{% url 'book_edit' book.id %}" class="btn btn-outline-secondary">Edit</a> <!-- Edit button -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Authors</title>
+    <style>
+        /* Your CSS styles */
+    </style>
+</head>
+<body>
+
+    
+    <div class="container">
+        <h1>All Authors</h1>
+        <a href="{% url 'create_author' %}" class="btn">Add New Author</a>
+        <div class="row">
+            {% for author in authors %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ author.image.url }}" class="card-img-top" alt="Author Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ author.name }}</h5>
+                        <p class="card-text">Birth Date: {{ author.birth_date }}</p>
+                        <!-- You can add more details here -->
+                        <a href="{% url 'author_detail' author.id %}" class="btn btn-primary">View Details</a>
+                        <a href="{% url 'delete_author' author.id %}" class="btn btn-danger">Delete</a>
+                        <a href="{% url 'edit_author' author.id %}" class="btn btn-secondary">Edit</a> <!-- Edit button for each author -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock %}

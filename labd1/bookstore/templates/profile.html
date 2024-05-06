@@ -1,0 +1,31 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+  .book-profile {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .book-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .card-body {
+    background-color: #f8f9fa;
+    border-radius: 0 0 5px 5px;
+  }
+</style>
+
+<h1>{{ book.name }}</h1>
+
+<h2>Book Profile</h2>
+<div class="card mb-3 book-profile">
+  <img src="{% static 'bookstore/images/'|add:book.image %}" class="card-img-top book-image" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ book.name }}</h5>
+    <p class="card-text">Price: {{ book.price }} | Author: {{ book.author }} | Pages: {{ book.paper }}</p>
+  </div>
+</div>
+{% endblock %}
